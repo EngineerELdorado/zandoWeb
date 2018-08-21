@@ -1,0 +1,25 @@
+export interface Product{
+    area_id:string;
+    area_name:string;
+    category_id:string;
+    category_name:string;
+    city_id:string;
+    city_name:string;
+    date:string;
+    deepLink:string;
+    description:string;
+    id:string;
+    latitute:number;
+    longitude:number;
+    millitime:number;
+    name:string;
+    negociable:string;
+    pay_per:string;
+    phone:string;
+    price:string;
+    thumbnail:string;
+    user_id:string;
+    username:string;
+    user_pic:string;
+    views:number;
+}

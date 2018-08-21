@@ -1,0 +1,90 @@
+<ngx-spinner></ngx-spinner>
+<!-- Split button -->
+<div class="row filtersDiv text-center">
+    
+      <div  class="btn-group col" mdbDropdown >
+          <button type="button" mdbBtn color="info" class="waves-light btn-sm" mdbWavesEffect>{{cityName}}</button>
+          <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+          <div class="dropdown-menu">
+              <a class="dropdown-item" (click)="getProducts()">Toutes</a>
+              <div class="dropdown-divider"></div>
+            <div *ngFor="let city of cities">
+                
+                <a class="dropdown-item" (click)="getProductByCityId(city.id, city.name)">{{city.name}}</a>
+                <div class="dropdown-divider"></div>
+            </div>
+             
+              
+          </div>
+        </div>
+
+        <div   class="btn-group col" mdbDropdown >
+            <button type="button" mdbBtn color="info" class="waves-light btn-sm" mdbWavesEffect>{{areaName}}</button>
+            <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+            <div class="dropdown-menu">
+                <div class="dropdown-divider"></div>
+              <div *ngFor="let area of areas">
+                  
+                  <a class="dropdown-item" (click)="getProductsByAreaId(area.id, area.name)">{{area.name}}</a>
+                  <div class="dropdown-divider"></div>
+              </div>
+               
+                
+            </div>
+          </div>
+          <div  class="btn-group col" mdbDropdown >
+              <button type="button" mdbBtn color="info" class="waves-light btn-sm" mdbWavesEffect>{{catName}}</button>
+              <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+              <div class="dropdown-menu">
+                  <!-- <a class="dropdown-item" (click)="getProducts()">Toutes</a> -->
+                  <div class="dropdown-divider"></div>
+                <div *ngFor="let category of categories">
+                    
+                    <a class="dropdown-item" (click)="getProductsByCategoryId(category.id, category.name)">{{category.name}}</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+                 
+                  
+              </div>
+            </div>
+          <div  class=" col" >
+            <form>
+              <input height="200" type="text" placeholder="Que cherchez vous ?">
+            </form>
+              
+            </div>
+
+          
+</div>
+
+
+<div class="row" #horizontalDiv>
+<div style="margin-top:20px; " class="col-md-9">
+    <div class="container row">
+        <div style="margin-bottom:10px"  [routerLink]="['/product/'+product.id]" class="col-md-3 product" id="holder" *ngFor="let product of products">
+          
+              
+                  <img width="150px" height="150px" class="card-img-top" src="{{product?.thumbnail}}" alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text text-center">
+                        <span class="badge badge-lg bg-info">{{product?.name|subText}}</span>
+                       <span class="badge badge-lg bg-success">{{product.price}} $</span></p>
+                  </div>
+                
+            
+        </div>
+      
+      
+  </div>
+</div>
+
+<div style="margin-top:100px" class="col-md-3 ">
+   <div class="card">
+      <ul class="list-group">
+          <li class="list-group-item bg-info " style="color:white">categories</li>
+          <li class="list-group-item text-info" (click)="getProducts()">Toutes</li>
+          <li (click)="getProductsByCategoryId(category.id, category.name)" class="list-group-item text-info" *ngFor="let category of categories">{{category.name}}</li>
+        </ul>
+   </div>
+</div>
+</div>
