@@ -59,7 +59,7 @@
 
 
 <div class="row" #horizontalDiv>
-<div style="margin-top:20px; " class="col-md-9">
+<div style="margin-top:20px; display: none" class="col-md-9">
     <div class="container row">
         <div style="margin-bottom:10px"  [routerLink]="['/product/'+product.id]" class="col-md-3 product" id="holder" *ngFor="let product of products">
           
@@ -69,14 +69,24 @@
                     <p class="card-text text-center">
                         <span class="badge badge-lg bg-info">{{product?.name|subText}}</span>
                        <span class="badge badge-lg bg-success">{{product.price}} $</span></p>
-                  </div>
-                
-            
         </div>
+    </div>
       
       
   </div>
 </div>
+
+<ng-masonry-grid
+                    [masonryOptions]="{ transitionDuration: '0.8s', gutter: 5 }" 
+                    [useAnimation]="true"
+                    [useImagesLoaded]="true"
+                    [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7 }">
+     
+      <ng-masonry-grid-item id="{{'masonry-item-'+i}}" *ngFor="let product of products; let i = index;" (click)="removeItem($event)"> 
+        
+        <img src="{{product.thumbnail}}" alt="No image" />
+      </ng-masonry-grid-item>
+</ng-masonry-grid>
 
 <div style="margin-top:100px" class="col-md-3 ">
    <div class="card">

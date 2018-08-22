@@ -21,6 +21,7 @@ import { FloatingActionMenuModule } from 'ng2-floating-action-menu';
 import { SubTextPipe } from './sub-text.pipe';
 import { CityComponent } from './city/city.component';
 import { AreaComponent } from './area/area.component';
+import { NgMasonryGridModule } from 'ng-masonry-grid';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { AreaComponent } from './area/area.component';
     AngularFireModule.initializeApp(environment.firebase),
     NgxSpinnerModule,
     FloatingActionMenuModule,
+    NgMasonryGridModule,
     AngularFireStorageModule, AngularFireAuthModule, AngularFireDatabaseModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBwlvMVgUCiwVI2fx3mCQf5i3BRMLMQ2ow'
