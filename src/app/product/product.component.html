@@ -60,7 +60,7 @@
 
 <div class="row" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
 <div style="" class="col-md-9">
-  <ng-masonry-grid style="margin-left: 50px" [masonryOptions]="{ transitionDuration: '0.8s', gutter: 5,addStatus: 'append' }" 
+  <ng-masonry-grid style="margin-left: 30px" [masonryOptions]="{ transitionDuration: '0.8s', gutter: 5,addStatus: 'append' }" 
   [useAnimation]="true"
   [useImagesLoaded]="true"
   [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.8, maxDuration : 0.15,viewportFactor : 5 }">
@@ -85,14 +85,20 @@
 </div>
 
 
-<div id="myScrollspy"  class=" col-md-3 ">
+<div  style="margin-top: 80px" id="myScrollspy"  class=" col-md-3 sticky">
    <div class="card">
+     <div class="row">
+      <div class="card">
+        
+      </div>
+     </div>
+    
       <ul class="list-group">
           <li class="list-group-item bg-info " style="color:white">categories</li>
           <li class="list-group-item text-info" (click)="getProducts()">Toutes</li>
           <li (click)="getProductsByCategoryId(category.id, category.name)" class="list-group-item text-info" *ngFor="let category of categories">{{category.name}}</li>
         </ul>
    </div>
-</div>
+  </div>
 
 </div>

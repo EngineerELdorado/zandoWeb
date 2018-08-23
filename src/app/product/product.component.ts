@@ -47,8 +47,8 @@ export class ProductComponent implements OnInit {
     this.townSelected=false;
     this.areaSelected=false;
      this.productService.getAll().valueChanges().subscribe((res)=>{
-       //this.products=res.reverse();
-       this.products=res;
+       this.products=res.reverse();
+      //  this.products=res;
        this.spinner.hide()
      }, (err)=>{
       this.spinner.hide()

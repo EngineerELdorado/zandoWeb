@@ -34,6 +34,7 @@
     "masonry-layout": "^4.2.2",
     "ng-masonry-grid": "^1.2.5",
     "ng2-floating-action-menu": "^2.1.0",
+    "ng2-sticky-kit": "^5.3.0",
     "ngx-spinner": "^6.1.2",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.2.2",
