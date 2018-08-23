@@ -36,6 +36,7 @@
     "ng2-floating-action-menu": "^2.1.0",
     "ngx-spinner": "^6.1.2",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

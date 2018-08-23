@@ -9,10 +9,11 @@ import { City } from 'src/app/city/City';
 import { AreaService } from 'src/app/area.service';
 import { Area } from 'src/app/area/Area';
 import { ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss','../../../node_modules/ng-masonry-grid/ng-masonry-grid.css']
 })
 export class ProductComponent implements OnInit {
 
@@ -22,6 +23,7 @@ export class ProductComponent implements OnInit {
     private areaService:AreaService,
     private spinner: NgxSpinnerService) { }
   products:Product[];
+  products2:Observable<Product[]>
   categories:Category[];
   private cities:City[];
   townSelected:boolean;
@@ -29,9 +31,9 @@ export class ProductComponent implements OnInit {
   areas:Area[];
   @ViewChild("citySelectedModal")citySelectedModal;
   @ViewChild("areaSelectedModal")areaSelectedModal;
-  catName="Vous pouvez trier les produits par Categorie";
-  cityName="Vous pouvez trier les produits par Ville...";
-  areaName="Vous pouvez trier les produits par Quartier";
+  catName="Vous pouvez trier  par Categorie.....";
+  cityName="Vous pouvez trier  par Ville......";
+  areaName="Vous pouvez trier  par Quartier......";
   ngOnInit() {
     this.spinner.show();
 
@@ -45,7 +47,8 @@ export class ProductComponent implements OnInit {
     this.townSelected=false;
     this.areaSelected=false;
      this.productService.getAll().valueChanges().subscribe((res)=>{
-       this.products=res.reverse();
+       //this.products=res.reverse();
+       this.products=res;
        this.spinner.hide()
      }, (err)=>{
       this.spinner.hide()
@@ -53,6 +56,7 @@ export class ProductComponent implements OnInit {
      },()=>{
        console.log("request was successful")
      })
+
   }
 
   getCategories(){
