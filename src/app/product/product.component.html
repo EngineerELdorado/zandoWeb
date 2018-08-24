@@ -58,25 +58,22 @@
 </div>
 
 
-<div class="row" data-spy="scroll" data-target="#myScrollspy" data-offset="1">
-<div style="" class="col-md-9">
-  <ng-masonry-grid style="margin-left: 30px" [masonryOptions]="{ transitionDuration: '0.8s', gutter: 5,addStatus: 'append' }" 
+<div class="row " data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+<div style="background-color: #fffde7" class="col-md-9">
+  <ng-masonry-grid class="row" style="margin-left: 30px" [masonryOptions]="{ transitionDuration: '0.8s', gutter: 5,addStatus: 'append',horizontalOrder: true }" 
   [useAnimation]="true"
   [useImagesLoaded]="true"
-  [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.8, maxDuration : 0.15,viewportFactor : 5 }">
+  [scrollAnimationOptions]="{ animationEffect: 'effect-4', minDuration : 0.4, maxDuration : 0.7,viewportFactor : 5 }">
     
      
-    <ng-masonry-grid-item [routerLink]="['/product/'+product?.id]"
+    <ng-masonry-grid-item class="card" [routerLink]="['/product/'+product?.id]"
     *ngFor="let product of products" style="margin: 2px; width: 180px">
-    
-      <div class="card">
-        <img class="card-img-top" src="{{product?.thumbnail}}" alt="Card image cap">
+      <img class="card-img-top" src="{{product?.thumbnail}}" alt="Card image cap">
         <div class="card-footer">
           <p class="card-text text-center">
               <span class="badge badge-lg bg-info">{{product?.name|subText}}</span>
              <span class="badge badge-lg bg-success">{{product?.price}} $</span></p>
         </div>
-      </div>
     </ng-masonry-grid-item>
   
     </ng-masonry-grid>

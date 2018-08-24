@@ -80,7 +80,7 @@ export class ProductComponent implements OnInit {
       //this.spinner.show();
       this.productService.getByCategory(id).valueChanges().subscribe(res=>{
         this.spinner.hide();
-        this.products=res;
+        this.products=res.reverse();
       }, err=>{
         this.spinner.hide();
       })
@@ -104,20 +104,20 @@ export class ProductComponent implements OnInit {
     })
   }
   getProductByCityId(id, name){
-    this.cityName="Trier seulement les produits de  "+name;
+    this.cityName="Trier  les produits de  "+name;
     this.areaService.getAreasByCityId(id).valueChanges().subscribe(res=>{
       this.areas=res
     })
     this.productService.getByCityId(id).valueChanges().subscribe(res=>{
-      this.products=res
+      this.products=res.reverse()
     })
   }
 
   getProductsByAreaId(id,name){
-    this.areaName="Trier seulement les produits de "+name;
+    this.areaName="Trier  les produits de "+name;
       this.areaSelected=true;
       this.productService.getByAreaId(id).valueChanges().subscribe(res=>{
-        this.products=res
+        this.products=res.reverse()
       })
     }
 }

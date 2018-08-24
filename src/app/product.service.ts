@@ -10,21 +10,21 @@ export class ProductService {
   
   
     getAll(){
-      return this.db.list<Product>("products", ref=>ref.limitToLast(50));
+      return this.db.list<Product>("products", ref=>ref.limitToLast(20));
     }
     getOne(id){
       return this.db.object<Product>("products/"+id);
     }
     getByCategory(id){
-     return this.db.list<Product>("products", ref=>ref.orderByChild("category_id").equalTo(id));
+     return this.db.list<Product>("products", ref=>ref.orderByChild("category_id").equalTo(id).limitToLast(20));
     }
 
     getByCityId(id){
-      return this.db.list<Product>("products", ref=>ref.orderByChild("city_id").equalTo(id));
+      return this.db.list<Product>("products", ref=>ref.orderByChild("city_id").equalTo(id).limitToLast(20));
     }
 
     getByAreaId(id){
-      return this.db.list<Product>("products", ref=>ref.orderByChild("area_id").equalTo(id));
+      return this.db.list<Product>("products", ref=>ref.orderByChild("area_id").equalTo(id).limitToLast(20));
     }
   
 }
