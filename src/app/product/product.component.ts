@@ -79,7 +79,7 @@ export class ProductComponent implements OnInit {
     else{
       //this.spinner.show();
       this.productService.getByCategory(id).valueChanges().subscribe(res=>{
-        this.spinner.hide();
+        //this.spinner.hide();
         this.products=res.reverse();
       }, err=>{
         this.spinner.hide();

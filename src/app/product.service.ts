@@ -10,7 +10,7 @@ export class ProductService {
   
   
     getAll(){
-      return this.db.list<Product>("products", ref=>ref.limitToLast(20));
+      return this.db.list<Product>("products", ref=>ref.limitToLast(100));
     }
     getOne(id){
       return this.db.object<Product>("products/"+id);

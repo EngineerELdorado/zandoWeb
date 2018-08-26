@@ -1,22 +1,22 @@
 <ngx-spinner></ngx-spinner>
 <div class="container" style="padding:10px;">
   <div class="row">
-    <div class="col">
+    <div class="col-md-3">
         <mdb-card>
             <!--Card image-->
             <mdb-card-img src="{{product?.thumbnail}}" alt="Card image cap"></mdb-card-img>
             
           </mdb-card>
     </div>
-    <div class="col">
+    <div class="col-md-6">
         <h5>Prix <span class="badge red">{{product?.price}} $</span></h5>
         <h5>Fournisseur <span class="badge blue">{{product?.username}}</span></h5>
         <h5 *ngIf="product?.negociable"> <span class="badge green">Prix A Discuter</span></h5>
         <h5>Date d'annonce <span class="badge blue">{{product?.millitime|date:'shortDate'}}</span></h5>
-        <h5>Description <span class="badge black">{{product?.description}}</span></h5>
+        <p>Description <span class="badge black">{{product?.description}}</span></p>
         
       </div>
-      <div class="col">
+      <div class="col-md-3">
           <h5>Address <span class="badge green">{{product?.city_name}}-{{product?.area_name}}</span></h5>
           <agm-map [latitude]="product?.latitude" [longitude]="product?.longitude" style="height: 300px">
               <agm-marker [latitude]="product?.latitude" [longitude]="product?.longitude"></agm-marker>
