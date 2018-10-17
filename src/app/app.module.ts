@@ -23,6 +23,7 @@ import { CityComponent } from './city/city.component';
 import { AreaComponent } from './area/area.component';
 import { NgMasonryGridModule } from 'ng-masonry-grid';
 import {StickyModule} from 'ng2-sticky-kit';
+import { AddProductComponent } from './add-product/add-product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import {StickyModule} from 'ng2-sticky-kit';
     CategoryComponent,
     SubTextPipe,
     CityComponent,
-    AreaComponent
+    AreaComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
