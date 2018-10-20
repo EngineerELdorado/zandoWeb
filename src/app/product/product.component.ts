@@ -10,6 +10,7 @@ import { AreaService } from 'src/app/area.service';
 import { Area } from 'src/app/area/Area';
 import { ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
+import { SubjectServiceService } from 'src/app/subject-service.service';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -21,11 +22,14 @@ export class ProductComponent implements OnInit {
     private categoryService:CategoryService,
     private cityService:CityService,
     private areaService:AreaService,
+    private subjectService:SubjectServiceService,
     private spinner: NgxSpinnerService) { }
   products:Product[];
   products2:Observable<Product[]>
   categories:Category[];
   private cities:City[];
+  cityId;
+  areadId;
   townSelected:boolean;
   areaSelected:boolean;
   areas:Area[];
@@ -39,34 +43,53 @@ export class ProductComponent implements OnInit {
 
     this.getProducts();
     this.getCategories();
-    this.getcities();
     
-  }
-
-  getProducts(){
-    this.townSelected=false;
-    this.areaSelected=false;
-     this.productService.getAll().valueChanges().subscribe((res)=>{
-       this.products=res.reverse();
-      //  this.products=res;
-       this.spinner.hide()
-     }, (err)=>{
-      this.spinner.hide()
-       console.log("error occured "+err)
-     },()=>{
-       console.log("request was successful")
-     })
-
   }
 
   getCategories(){
     this.categoryService.getAll().valueChanges().subscribe(res=>{
-    this.categories=res
-    console.log(this.categories)
-    }, err=>{
-      console.log(err)
+      this.categories=res
     })
   }
+
+  getProducts(){
+    
+     this.subjectService.cityIdObs.subscribe(res=>{
+       this.cityId=res;
+
+      
+       if(this.cityId==0){
+        this.productService.getAll().valueChanges().subscribe((res)=>{
+          this.products=res.reverse();
+         //  this.products=res;
+          this.spinner.hide()
+        }, (err)=>{
+         this.spinner.hide()
+          console.log("error occured "+err)
+        },()=>{
+          console.log("request was successful")
+        })
+       }else{
+        this.subjectService.areaIdObs.subscribe(res=>{
+          this.areadId=res;
+          console.log(this.areadId)
+          if(this.areadId==0){
+            this.productService.getByCityId(this.cityId).valueChanges().subscribe(res=>{
+              this.products=res
+            })
+          }else{
+            //alert(this.areadId)
+           this.productService.getByAreaId(this.areadId).valueChanges().subscribe(res2=>{
+             this.products=res2
+           })
+          }
+        })
+         
+       }
+     })
+
+  }
+
 
   getProductsByCategoryId(id, name){
      this.catName="Trouver seulement les : "+name;
@@ -89,35 +112,5 @@ export class ProductComponent implements OnInit {
 
   }
 
-  getcities(){
-    this.cityService.getCities().valueChanges().subscribe(res=>{
-     this.cities=res;
-     console.log(this.cities)
-    },err=>{
-      console.log(err)
-    })
-  }
-
-  getAreas(){
-    this.areaService.getAllAreas().valueChanges().subscribe(res=>{
-      this.areas = res
-    })
-  }
-  getProductByCityId(id, name){
-    this.cityName="Trouver  les produits de  "+name;
-    this.areaService.getAreasByCityId(id).valueChanges().subscribe(res=>{
-      this.areas=res
-    })
-    this.productService.getByCityId(id).valueChanges().subscribe(res=>{
-      this.products=res.reverse()
-    })
-  }
-
-  getProductsByAreaId(id,name){
-    this.areaName="Trouver les produits de "+name;
-      this.areaSelected=true;
-      this.productService.getByAreaId(id).valueChanges().subscribe(res=>{
-        this.products=res.reverse()
-      })
-    }
+  
 }

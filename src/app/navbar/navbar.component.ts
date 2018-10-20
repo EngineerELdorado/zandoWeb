@@ -9,6 +9,7 @@ import { ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductService } from '../product.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SubjectServiceService } from 'src/app/subject-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -31,6 +32,7 @@ export class NavbarComponent implements OnInit {
     private categoryService:CategoryService,
     private cityService:CityService,
     private areaService:AreaService,
+    private subjectService:SubjectServiceService,
     private spinner: NgxSpinnerService) { }
   ngOnInit() {
     this.getAll();
@@ -76,6 +78,8 @@ export class NavbarComponent implements OnInit {
   }
   getProductByCityId(id, name){
     this.cityName=name;
+    this.subjectService.setCityId(id);
+    this.subjectService.setAreaId(0);
     this.areaService.getAreasByCityId(id).valueChanges().subscribe(res=>{
       this.areas=res
     })
@@ -84,6 +88,7 @@ export class NavbarComponent implements OnInit {
 
   getProductsByAreaId(id,name){
     this.areaName=name;
+    this.subjectService.setAreaId(id);
       this.areaSelected=true;
       
     }

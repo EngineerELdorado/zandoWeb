@@ -8,7 +8,7 @@
      
     <div class="cardd btn" [routerLink]="['/product/'+product?.id]"
     *ngFor="let product of products" style="width:92%;max-width:220px;border-radius:5px">
-      <img height="180"  src="{{product?.thumbnail}}" style="width:100%;opacity:0.85;border-radius:5px 5px 0 0" alt="Card image cap">
+      <img height="180"  src="{{product?.thumbnail}}" onError="this.src='https://firebasestorage.googleapis.com/v0/b/toracash-1f513.appspot.com/o/logo.png?alt=media&token=c385f568-e6c2-431d-abb1-b41790e65aaa'" style="width:100%;opacity:0.85;border-radius:5px 5px 0 0" alt="Card image cap">
       
 
       
@@ -36,7 +36,7 @@
 
 
              <div class="time">
-             <p><span class="c">{{product?.date|subText}}</span> </p>
+             <p><span style="margin-right:5px" class="c">{{product?.date|subText}}</span> </p>
              </div>
 
              </div>
