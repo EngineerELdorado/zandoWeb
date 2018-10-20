@@ -1,76 +1,46 @@
 <ngx-spinner></ngx-spinner>
 
-<div class="row filtersDiv text-center">
-    
-      <div  class="btn-group col" mdbDropdown >
-          <button type="button" mdbBtn color="info" class="waves-light btn-sm" mdbWavesEffect>{{cityName}}</button>
-          <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
-          <div class="dropdown-menu">
-              <a class="dropdown-item" (click)="getProducts()">Toutes</a>
-              <div class="dropdown-divider"></div>
-            <div *ngFor="let city of cities">
-                
-                <a class="dropdown-item" (click)="getProductByCityId(city.id, city.name)">{{city.name}}</a>
-                <div class="dropdown-divider"></div>
-            </div>
-             
-              
-          </div>
-        </div>
-
-        <div   class="btn-group col" mdbDropdown >
-            <button type="button" mdbBtn color="info" class="waves-light btn-sm" mdbWavesEffect>{{areaName}}</button>
-            <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
-            <div class="dropdown-menu">
-                <div class="dropdown-divider"></div>
-              <div *ngFor="let area of areas">
-                  
-                  <a class="dropdown-item" (click)="getProductsByAreaId(area.id, area.name)">{{area.name}}</a>
-                  <div class="dropdown-divider"></div>
-              </div>
-               
-                
-            </div>
-          </div>
-          <div  class="btn-group col" mdbDropdown >
-              <button type="button" mdbBtn color="info" class="waves-light btn-sm" mdbWavesEffect>{{catName}}</button>
-              <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
-              <div class="dropdown-menu">
-                  <!-- <a class="dropdown-item" (click)="getProducts()">Toutes</a> -->
-                  <div class="dropdown-divider"></div>
-                <div *ngFor="let category of categories">
-                    
-                    <a class="dropdown-item" (click)="getProductsByCategoryId(category.id, category.name)">{{category.name}}</a>
-                    <div class="dropdown-divider"></div>
-                </div>
-                 
-                  
-              </div>
-            </div>
-          <div  class=" col" >
-            <form>
-              <input height="200" type="text" placeholder="Que cherchez vous ?">
-            </form>
-              
-            </div>
-
-          
-</div>
-
 
 <div class="row ">
 <div style="" class="col-md-9">
-  <div class="row " style="margin-left: 30px" >
+  <div class="row " style="margin-left:30px; text-align: left; " >
     
      
-    <div class="card" [routerLink]="['/product/'+product?.id]"
-    *ngFor="let product of products" style="margin: 3px; width: 180px; height:180px">
-      <img height="180" style="position:relative; z-index:1" class="card-img-top" src="{{product?.thumbnail}}" alt="Card image cap">
-        <div class="card-body" style="position:absolute; z-index:2; right:0; bottom:0; height:22px">
-          <p class="card-text">
-              <span class="badge badge-lg bg-info">{{product?.name|subText}}</span>
-             <span class="badge badge-lg bg-success">{{product?.price}} $</span></p>
-        </div>
+    <div class="cardd btn" [routerLink]="['/product/'+product?.id]"
+    *ngFor="let product of products" style="width:92%;max-width:220px;border-radius:5px">
+      <img height="180"  src="{{product?.thumbnail}}" style="width:100%;opacity:0.85;border-radius:5px 5px 0 0" alt="Card image cap">
+      
+
+      
+
+        
+
+
+
+
+
+      <div class="options">
+
+              <div class="prix">
+             <h4><b><span class="c">{{product?.price}} $</span> </b> </h4>
+             </div>
+             
+             <div class="jina">
+             <p><span class="c">{{product?.name|subText}}</span> </p>
+             </div>
+
+
+             <div class="lieu">
+             <p>à <span class="c">{{product?.city_name|subText}}</span> </p>
+             </div>
+
+
+             <div class="time">
+             <p><span class="c">{{product?.date|subText}}</span> </p>
+             </div>
+
+             </div>
+        
       </div>
   
     </div>

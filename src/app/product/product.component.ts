@@ -31,9 +31,9 @@ export class ProductComponent implements OnInit {
   areas:Area[];
   @ViewChild("citySelectedModal")citySelectedModal;
   @ViewChild("areaSelectedModal")areaSelectedModal;
-  catName="Vous pouvez trier  par Categorie.....";
-  cityName="Vous pouvez trier  par Ville......";
-  areaName="Vous pouvez trier  par Quartier......";
+  catName="Trouver  par Categorie.....";
+  cityName="Trouver  par Ville......";
+  areaName="Trouver par  Quartier......";
   ngOnInit() {
     this.spinner.show();
 
@@ -69,7 +69,7 @@ export class ProductComponent implements OnInit {
   }
 
   getProductsByCategoryId(id, name){
-     this.catName="Trier seulement les : "+name;
+     this.catName="Trouver seulement les : "+name;
      if(this.townSelected && !this.areaSelected){
        this.citySelectedModal.show();
      }
@@ -104,7 +104,7 @@ export class ProductComponent implements OnInit {
     })
   }
   getProductByCityId(id, name){
-    this.cityName="Trier  les produits de  "+name;
+    this.cityName="Trouver  les produits de  "+name;
     this.areaService.getAreasByCityId(id).valueChanges().subscribe(res=>{
       this.areas=res
     })
@@ -114,7 +114,7 @@ export class ProductComponent implements OnInit {
   }
 
   getProductsByAreaId(id,name){
-    this.areaName="Trier  les produits de "+name;
+    this.areaName="Trouver les produits de "+name;
       this.areaSelected=true;
       this.productService.getByAreaId(id).valueChanges().subscribe(res=>{
         this.products=res.reverse()

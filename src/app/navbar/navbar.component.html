@@ -1,19 +1,111 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color:fafafa">
-    <a  class="navbar-brand" routerLink="/"><img src="assets/img/logo.png" width="50" height="50" alt="">
-       <!-- <label id="brand" class="text-info" for=""><b>ToraCash</b></label> -->
-      </a>
+    <a  class="navbar-brand" routerLink="/"><img src="assets/img/logo.png" width="65" height="65" alt="">
+    <label id="brand" class="text-info col" for=""><b>ToraCash</b></label> </a>
+      
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-       
-        
-        
-      </ul>
-      <a>Se Connecter </a>
-      <!-- <a> Creer Un Compte</a> -->
-      <button routerLink="/create-product"  class="btn btn-sm btn-info">Publier Un Produit</button>
+
+
+        <div class="row">
+          <div class="recherche ">
+
+              <div class="dropdownmenu">
+
+               <ul> 
+
+            <li><div  class="btn-group col" mdbDropdown >
+                <button type="button" mdbBtn color="inf"  mdbWavesEffect>{{cityName}}</button>
+                <button type="button" mdbDropdownToggle mdbBtn  color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" (click)="getProducts()">Toutes</a>
+                    <div class="dropdown-divider"></div>
+                  <div *ngFor="let city of cities">
+                      
+                      <a class="dropdown-item" (click)="getProductByCityId(city.id, city.name)">{{city.name}}</a>
+                      <div class="dropdown-divider"></div>
+                  </div>
+               
+                   
+                    
+                </div>
+              </div> </li>
+         
+
+
+      
+             <li><div   class="btn-group col" mdbDropdown >
+                  <button type="button" mdbBtn color="inf"  mdbWavesEffect>{{areaName}}</button>
+                  <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+                  <div class="dropdown-menu">
+                      <div class="dropdown-divider"></div>
+                    <div *ngFor="let area of areas">
+                        
+                        <a class="dropdown-item" (click)="getProductsByAreaId(area.id, area.name)">{{area.name}}</a>
+                        <div class="dropdown-divider"></div>
+                    </div>
+                     
+                      
+                  </div>
+                </div> </li>
+
+
+               <li>
+               <div  class="btn-group col  " mdbDropdown >
+                    <button type="button" mdbBtn color="inf"  mdbWavesEffect>{{catName}}</button>
+                    <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" (touch)="getProducts()">Toutes</a>
+                        <div class="dropdown-divider"></div>
+                      <div *ngFor="let category of categories">
+                          
+                          <a class="dropdown-item" (click)="getProductsByCategoryId(category.id, category.name)">{{category.name}}</a>
+                          <div class="dropdown-divider"></div>
+                      </div>
+                       
+                        
+                    </div>
+                  </div> 
+
+                </li>
+
+                  <li> <div class="col">
+                    <form action="">
+                      <div class="form-group btn-group col  ">
+                        <input type="text" placeholder="Que cherchez vous ?" class="form-control" style="width:170px">
+                      </div>
+                    </form>
+                  </div> 
+                  </li>
+
+                  </ul>
+               
+
+
+                  
+
+
+                </div>
+
+                </div>
+                   
+                
+                  <div class="col text-right ">
+
+                      <a >MON COMPTE</a>   
+                    
+                
+                    </div>
+
+                      <div class="col text-right v">
+ <!-- <a> Creer Un Compte</a> -->
+ <button routerLink="/create-product"  class="btn btn-sm btn-info v">Vendre</button>
+                  </div>
+                
+        </div>
+  
+  
     </div>
   </nav>

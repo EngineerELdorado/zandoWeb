@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/category.service';
 import { Category } from 'src/app/category/Category';
+import { CityService } from 'src/app/city.service';
+import { City } from 'src/app/city/City';
+import { AreaService } from 'src/app/area.service';
+import { Area } from 'src/app/area/Area';
+import { ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ProductService } from '../product.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +17,28 @@ import { Category } from 'src/app/category/Category';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private categoryService:CategoryService) { }
   categories:Category[];
+  private cities:City[];
+  townSelected:boolean;
+  areaSelected:boolean;
+  areas:Area[];
+  @ViewChild("citySelectedModal")citySelectedModal;
+  @ViewChild("areaSelectedModal")areaSelectedModal;
+  catName="Categories.....";
+  cityName="Villes......";
+  areaName="Quartiers......";
+  constructor(private productService:ProductService,
+    private categoryService:CategoryService,
+    private cityService:CityService,
+    private areaService:AreaService,
+    private spinner: NgxSpinnerService) { }
   ngOnInit() {
     this.getAll();
+    this.getCategories();
+  this.getcities();
   }
 
+  
   getAll(){
     this.categoryService.getAll().valueChanges().subscribe(res=>{
     this.categories=res
@@ -23,5 +47,45 @@ export class NavbarComponent implements OnInit {
       console.log(err)
     })
   }
+
+
+
+  getCategories(){
+    this.categoryService.getAll().valueChanges().subscribe(res=>{
+    this.categories=res
+    console.log(this.categories)
+    }, err=>{
+      console.log(err)
+    })
+  }
+
+
+  getcities(){
+    this.cityService.getCities().valueChanges().subscribe(res=>{
+     this.cities=res;
+     console.log(this.cities)
+    },err=>{
+      console.log(err)
+    })
+  }
+
+  getAreas(){
+    this.areaService.getAllAreas().valueChanges().subscribe(res=>{
+      this.areas = res
+    })
+  }
+  getProductByCityId(id, name){
+    this.cityName=name;
+    this.areaService.getAreasByCityId(id).valueChanges().subscribe(res=>{
+      this.areas=res
+    })
+    
+  }
+
+  getProductsByAreaId(id,name){
+    this.areaName=name;
+      this.areaSelected=true;
+      
+    }
 
 }
