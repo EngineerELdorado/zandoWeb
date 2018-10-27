@@ -1,22 +1,57 @@
 <ngx-spinner></ngx-spinner>
 <div class="container" style="padding:10px;">
   <div class="row">
+
+    <div class="pub" style="width:550%; align-content: center;  height: 550%; margin-bottom: 50px; margin-top: 10px;  "> ... </div>
+
+
+
+
     <div class="col-md-3">
-        <mdb-card>
+
+
+      <div class="ca" style="width:550%; height: 550%; max-width:515px; max-height: 515px; border-radius: 2% 2% 2% 2%; padding: 5px 5px 5px 5px;  border: 2px solid rgba(0,47,52,.12);">
+        
             <!--Card image-->
-            <mdb-card-img src="{{product?.thumbnail}}" alt="Card image cap"></mdb-card-img>
+            <img height="500" width="500" style="border-radius: 2% 2% 2% 2%;" src="{{product?.thumbnail}}" alt="Card image cap">
             
-          </mdb-card>
+          
+
+          </div>
+          <div ><p>Description <span class="badge black">{{product?.description}}</span></p> 
+          
+          </div>
+
+
     </div>
-    <div class="col-md-6">
-        <h5>Prix <span class="badge red">{{product?.price}} $</span></h5>
-        <h5>Fournisseur <span class="badge blue">{{product?.username}}</span></h5>
-        <h5 *ngIf="product?.negociable"> <span class="badge green">Prix A Discuter</span></h5>
-        <h5>Date d'annonce <span class="badge blue">{{product?.millitime|date:'shortDate'}}</span></h5>
-        <p>Description <span class="badge black">{{product?.description}}</span></p>
+    <div class="ca" style=" position:absolute; top: 180px;  left: 750px; width:470px; height: 250px; border-radius: 2% 2% 2% 2%; padding: 5px 5px 5px 5px;  border: 2px solid rgba(0,47,52,.12);">
+      
+        <p style="color: black; font-size: 40px;font-weight: 900;"> <span class="b">{{product?.price}} $</span></p>
+      
+        <p style="color: #06D85F ; font-size: 16px; text-transform: capitalize; "> <span class="n">Prix A Discuter</span> </p> 
+
+        <p style="color: rgb(83, 81, 81); font-size: 35px;font-weight: 400; text-transform: capitalize; "> <span class="b">{{product?.name}} </span></p>
+        <hr>
+        <span class="badge blue">{{product?.millitime|date:'shortDate'}}</span>
+        
         
       </div>
-      <div class="col-md-3">
+
+      <div class="ca" style=" position:absolute; top: 420px;  left: 750px; width:470px; margin-top: 20px; height: 200px; border-radius: 2% 2% 2% 2%; padding: 5px 5px 5px 5px;  border: 2px solid rgba(0,47,52,.12);">
+
+
+
+
+         <p style="color: black; font-size: 20px;font-weight: 100;"> Contacter le vendeur </p>
+
+         <p style="color: black; font-size: 40px;font-weight: 900;">  <span class="badge blue">{{product?.username}}</span></p>
+
+         <button style="height:35px; width: calc(50% - 22px);padding: 0 10px; cursor: pointer;"><i class="icon-phone"></i> Appeler</button>
+
+
+        </div>
+
+        <div class="ca" style=" position:absolute; top: 620px;  left: 750px; width:470px; margin-top: 20px; height: 200px; border-radius: 2% 2% 2% 2%; padding: 5px 5px 5px 5px;  border: 2px solid rgba(0,47,52,.12);">
           <h5>Address <span class="badge green">{{product?.city_name}}-{{product?.area_name}}</span></h5>
           <agm-map [latitude]="product?.latitude" [longitude]="product?.longitude" style="height: 300px">
               <agm-marker [latitude]="product?.latitude" [longitude]="product?.longitude"></agm-marker>

@@ -16,10 +16,10 @@
 
                <ul> 
 
-            <li><div  class="btn-group col" mdbDropdown >
-                <button type="button" mdbBtn color="inf"  mdbWavesEffect>{{cityName}}</button>
+            <li><div  class="btn-group" style="position: absolute; top:2px; left: 2px; width: 15px; height: 42px;" mdbDropdown >
+                <button type="button" mdbBtn style="background-color:#FFFFFF;  color:rgb(85, 85, 85); "  mdbWavesEffect>{{cityName}}</button>
                 <button type="button" mdbDropdownToggle mdbBtn  color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu"> 
                     <a class="dropdown-item" (click)="getProducts()">Toutes</a>
                     <div class="dropdown-divider"></div>
                   <div *ngFor="let city of cities">
@@ -36,8 +36,8 @@
 
 
       
-             <li><div   class="btn-group col" mdbDropdown >
-                  <button type="button" mdbBtn color="inf"  mdbWavesEffect>{{areaName}}</button>
+             <li><div   class="btn-group" style="position: absolute; top:2px; left:170px; width: 15px; height: 42px;"  mdbDropdown >
+                  <button type="button" style="background-color:#FFFFFF; color:rgb(85, 85, 85); " mdbBtn   mdbWavesEffect>{{areaName}}</button>
                   <button type="button" mdbDropdownToggle mdbBtn color="info" class="btn-sm dropdown-toggle dropdown-toggle-split px-3 waves-light" mdbWavesEffect></button>
                   <div class="dropdown-menu">
                       <div class="dropdown-divider"></div>
@@ -60,7 +60,7 @@
                   <li> <div class="col">
                     <form action="">
                       <div class="form-group btn-group col  ">
-                        <input type="text" placeholder="Que cherchez vous ?" class="form-control" style="width:170px">
+                        <input type="text" placeholder="Que cherchez vous ?" class="form-control" style=" position: absolute; top:-4px; left:350px; width:280px; height: 45px; background-color:#FFFFFF;   ">
                       </div>
                     </form>
                   </div> 
@@ -77,17 +77,133 @@
 
                 </div>
                    
-                
-                  <div class="col text-right ">
 
-                      <a >MON COMPTE</a>   
+                
+                  <p style="position: absolute; top:30px; left: 1000px;" ><a  href="#popup1"> <i class="icon-user"></i>  Mon compte</a> </p>
+               
+                
+                <div id="popup1" class="overlay"> 
+                  <div class="popup">
+                      <img src="assets/img/logo.png" width="50" height="50" alt="">
                     
+                    <a class="close" href="#">&times;</a>
+                    
+                      
+                        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+                        <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
+                        <div class="login-box">
+                            <div class="lb-header">
+                              <a href="#popup1" class="active" id="login-box-link">Se connecter</a>
+                              <a href="#popup2" id="signup-box-link">S'inscrire</a>
+                            </div>
+                            
+                            <form class="email-login">
+                              <div class="u-form-group">
+                                <input type="email" placeholder="Numéro de tél ou Mail"/>
+                              </div>
+                              <div class="u-form-group">
+                                <input type="password" placeholder="Mot de passe"/>
+                              </div>
+                              <div class="u-form-group">
+                                <button style="height:35px; width: calc(50% - 22px);padding: 0 10px; cursor: pointer;">Se connecter</button>
+                              </div>
+                              <div class="u-form-group">
+                                <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                              </div>
+                            </form>
+
+                            <h4> Ou se connecter avec </h4>
+                             <div class="social-login">
+                              <a href="#">
+                                <i class="fa fa-facebook fa-lg"></i>
+                               facebook
+                              </a>
+                              <a href="#">
+                                <i class="fa fa-google-plus fa-lg"></i>
+                                Google
+                              </a>
+                            </div>  
+                           
+                          
+                      
+                           
+                        </div>  
+                  </div>
+                </div>
+
+
+                
+                
+                  <div id="popup1" class="overlay" style="position:absolute;  top:25px; left:950px;" >
                 
                     </div>
 
-                      <div class="col text-right v">
+                    <div id="popup2" class="overlay"> 
+                        <div class="popup">
+                            
+                            <img src="assets/img/logo.png" width="50" height="50" alt="">
+                          
+                          <a class="close" href="#">&times;</a>
+                          
+                            
+                              <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+                              <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+      
+                              <div class="login-box">
+                                  <div class="lb-header">
+                                    <a href="#popup1"  id="login-box-link">Se connecter</a>
+                                    <a href="#popup2" class="active" id="signup-box-link">S'inscrire</a>
+                                  </div>
+                                  
+                                  <form class="email-login">
+                                      <div class="u-form-group">
+                                        <input type="text" placeholder="Nom d'utiliateur"/>
+                                      </div>
+                                      <div class="u-form-group">
+                                        <input type="text" placeholder="Numéro de téléphone"/>
+                                      </div>
+                                      <div class="u-form-group">
+                                          <input type="email" placeholder="Adresse mail"/>
+                                        </div>
+                                        <div class="u-form-group">
+                                            <input type="password" placeholder="Mot de passe"/>
+                                          </div>
+
+                                      <div class="u-form-group">
+                                        <button style="height:35px; width: calc(50% - 22px);padding: 0 10px; cursor: pointer;">S'inscrire</button>
+                                      </div>
+                                    
+                                        <p style="font-size: 12px;"> En cliquant sur s'inscrire vous acceptez nos  <a href="#" >Termes d'utilisations</a> </p>
+                                     
+                                    </form>
+
+                                  <h6> Ou s'inscrire avec </h6>
+                                   <div class="social-login">
+                                    <a href="#">
+                                      <i class="fa fa-facebook fa-lg"></i>
+                                     facebook
+                                    </a>
+                                    <a href="#">
+                                      <i class="fa fa-google-plus fa-lg"></i>
+                                      Google
+                                    </a>
+                                  </div>  
+                                  
+                                
+                                
+                                 
+                              </div>  
+                        </div>
+                      </div>
+
+                    <div id="popup2" class="overlay" style="position:absolute;  top:25px; left:950px;" >
+                
+                      </div>
+
+                    <div  style="position:absolute;  top:8px; left:1150px;  " >
  <!-- <a> Creer Un Compte</a> -->
- <button routerLink="/create-product"  class="btn btn-sm btn-info v">Vendre</button>
+ <button routerLink="/create-product"  class="button" > <i class="icon-camera"></i> Vendre</button>
                   </div>
                 
         </div>

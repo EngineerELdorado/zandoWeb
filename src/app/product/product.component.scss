@@ -32,16 +32,19 @@ hr{
 
 .cardd{
 
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     margin: 10px; 
     width: 220px; 
-    height:245px; 
+    height:243px; 
     padding: 5px 5px 5px 5px;
-    border: 1px solid #41b7db;
+    border: 1px solid rgba(0,47,52,.12);
+
 
     
-    border-radius: 5px;
+
+    
+    
 }
 
 .cardd:hover {
@@ -61,6 +64,7 @@ hr{
     color:#031d25;
     font-weight: bold;
     font-size: 2px;   
+   
 
 }
 
@@ -68,13 +72,14 @@ hr{
     padding: 2px 16px;
     position: relative;
     top: -40px; 
-    left: 14px;
+    left: 7px;
     text-align:right;
     text-transform: capitalize;
     line-height: 1.2em;
     font-size: 16px;
-    font-weight: 400;
+    font-weight: bolder;
     color: #41b7db;  
+    
 
 }
 
@@ -82,11 +87,13 @@ hr{
     padding: 2px 16px;
     position: relative;
     top: -50px; 
-    left: -15px;
+    left: -10px;
     text-align: left;
     color:rgb(68, 65, 65);
+    
     text-transform: capitalize;  
     font-size: 12px;
+    
 
 }
 
@@ -94,7 +101,7 @@ hr{
     padding: 2px 16px;
     position: relative;
     top: -140px; 
-    left: 14px;
+    left: 7px;
     text-align:right;
     text-transform: capitalize;
     line-height: 1.2em;
@@ -120,22 +127,27 @@ img {
 
 .options {
     position: relative;
-    width: 218px; 
+    width: 210px; 
     top:-40px; 
     left: -5px;
-    margin-top: 40px;
+    margin-top: 43px;
     height: 58px;
     list-style-type: none;
     margin: 10;
     padding: 10;
     
-    border-radius: 5px;
-    background-color: #FFFFFF;
+    border-radius: 0  0  25% 25%;
+
+    
     border: solid 0.2em; 
     border-left-color: #41b7db;
     border-bottom-color: #41b7db;
+    border-right-color: #41b7db;
 }
 
 
 
+.categorie {
 
+    color: red; 
+}
